@@ -1,1115 +1,670 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html>
+<!-- Mirrored from html.themexriver.com/nextbit/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Nov 2024 06:31:48 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaking News | Global News Network</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Variables */
-        :root {
-            --primary-color: #d20a11;
-            --primary-dark: #a30000;
-            --primary-light: #ff3b3b;
-            --text-color: #222;
-            --text-light: #555;
-            --bg-color: #fff;
-            --bg-secondary: #f8f8f8;
-            --border-color: #eee;
-            --shadow-color: rgba(0,0,0,0.1);
-            --font-heading: 'Source Serif Pro', Georgia, serif;
-            --font-body: 'Roboto', Arial, sans-serif;
-            --spacing-xs: 5px;
-            --spacing-sm: 10px;
-            --spacing-md: 20px;
-            --spacing-lg: 30px;
-            --spacing-xl: 40px;
-            --transition-speed: 0.3s;
-            --border-radius: 4px;
-        }
-
-        /* Dark Theme */
-        [data-theme="dark"] {
-            --primary-color: #ff2a2a;
-            --primary-dark: #d10000;
-            --primary-light: #ff5c5c;
-            --text-color: #e0e0e0;
-            --text-light: #aaa;
-            --bg-color: #1a1a1a;
-            --bg-secondary: #2a2a2a;
-            --border-color: #444;
-            --shadow-color: rgba(0,0,0,0.3);
-        }
-
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-body);
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: background-color var(--transition-speed) ease, 
-                        color var(--transition-speed) ease;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all var(--transition-speed) ease;
-        }
-
-        a:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Theme Switcher */
-        .theme-switch {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .theme-switch:hover {
-            transform: scale(1.1);
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            z-index: 200;
-            width: 100%;
-            height: 4px;
-            background: transparent;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background: var(--primary-color);
-            width: 0%;
-        }
-
-        /* Header Styles */
-        .ticker-tape {
-            background-color: var(--primary-color);
-            color: white;
-            padding: var(--spacing-xs) 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .ticker-content {
-            display: inline-block;
-            animation: ticker 30s linear infinite;
-            padding-left: 100%;
-        }
-
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: var(--spacing-md);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            transition: all var(--transition-speed) ease;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-        }
-
-        .breaking-label {
-            background-color: white;
-            color: var(--primary-color);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            font-weight: bold;
-            text-transform: uppercase;
-            animation: pulse 2s infinite;
-            border-radius: var(--border-radius);
-            letter-spacing: 1px;
-            font-size: 0.85rem;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
-        .site-title {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        /* Navigation */
-        .nav-container {
-            position: relative;
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: var(--spacing-xs);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: var(--spacing-md);
-        }
-
-        .nav-links a {
-            color: white;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            font-weight: 500;
-            position: relative;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            text-decoration: none;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: all var(--transition-speed) ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--spacing-lg) var(--spacing-md);
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: var(--spacing-xl);
-        }
-
-        .content {
-            background-color: var(--bg-color);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px var(--shadow-color);
-            transition: all var(--transition-speed) ease;
-        }
-
-        .article-header {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .tag {
-            background-color: var(--primary-light);
-            color: white;
-            padding: 3px var(--spacing-xs);
-            border-radius: var(--border-radius);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .timestamp {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        .timestamp::before {
-            content: "";
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-        }
-
-        h1 {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-color);
-        }
-
-        .article-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            font-family: var(--font-heading);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.4;
-        }
-
-        .article-image-container {
-            position: relative;
-            margin: var(--spacing-lg) 0;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
-
-        .article-image {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
-
-        .article-image:hover {
-            transform: scale(1.02);
-        }
-
-        .image-caption {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: var(--spacing-sm);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            font-size: 0.9rem;
-        }
-
-        .article-content p {
-            margin-bottom: var(--spacing-md);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        blockquote {
-            border-left: 4px solid var(--primary-color);
-            padding: var(--spacing-md) var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            font-style: italic;
-            font-family: var(--font-heading);
-            font-size: 1.3rem;
-            background-color: var(--bg-secondary);
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            position: relative;
-        }
-
-        blockquote::before {
-            content: '"';
-            font-size: 3rem;
-            position: absolute;
-            left: var(--spacing-sm);
-            top: 0;
-            color: var(--primary-light);
-            opacity: 0.3;
-        }
-
-        .author-container {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            margin: var(--spacing-xl) 0;
-            padding: var(--spacing-md);
-            background-color: var(--bg-secondary);
-            border-radius: var(--border-radius);
-        }
-
-        .author-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-color);
-        }
-
-        .author-info h3 {
-            margin-bottom: var(--spacing-xs);
-            font-family: var(--font-heading);
-        }
-
-        .author-bio {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .share-container {
-            display: flex;
-            gap: var(--spacing-sm);
-            margin: var(--spacing-lg) 0;
-        }
-
-        .share-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: var(--spacing-xs) var(--spacing-md);
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            font-weight: 500;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .share-button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Related News Section */
-        .related-news {
-            margin-top: var(--spacing-xl);
-            border-top: 2px solid var(--border-color);
-            padding-top: var(--spacing-lg);
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-            position: relative;
-            padding-bottom: var(--spacing-xs);
-            font-size: 1.5rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-        }
-
-        .news-card {
-            background: var(--bg-secondary);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: all var(--transition-speed) ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 3px 10px var(--shadow-color);
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px var(--shadow-color);
-        }
-
-        .card-image-container {
-            height: 150px;
-            overflow: hidden;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-speed) ease;
-        }
-
-        .news-card:hover .card-image {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: var(--spacing-md);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-title {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.3;
-        }
-
-        .card-text {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .read-more {
-            margin-top: auto;
-            align-self: flex-start;
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            transition: all var(--transition-speed) ease;
-        }
-
-        .read-more:hover {
-            gap: calc(var(--spacing-xs) * 2);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: sticky;
-            top: 90px;
-            align-self: start;
-        }
-
-        .sidebar-section {
-            background-color: var(--bg-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 3px 10px var(--shadow-color);
-            margin-bottom: var(--spacing-lg);
-            overflow: hidden;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .sidebar-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: var(--spacing-sm) var(--spacing-md);
-            font-family: var(--font-heading);
-            font-weight: 600;
-        }
-
-        .sidebar-content {
-            padding: var(--spacing-md);
-        }
-
-        .trending-list {
-            list-style: none;
-        }
-
-        .trending-item {
-            padding: var(--spacing-sm) 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .trending-item:last-child {
-            border-bottom: none;
-        }
-
-        .trending-link {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .trending-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            opacity: 0.7;
-            min-width: 30px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .newsletter-input {
-            padding: var(--spacing-sm);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            background-color: var(--bg-secondary);
-            color: var(--text-color);
-        }
-
-        .newsletter-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: var(--spacing-sm);
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .newsletter-button:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #222;
-            color: white;
-            padding: var(--spacing-xl) var(--spacing-md);
-            margin-top: var(--spacing-xl);
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-lg);
-        }
-
-        .footer-column h3 {
-            margin-bottom: var(--spacing-md);
-            font-family: var(--font-heading);
-            position: relative;
-            padding-bottom: var(--spacing-xs);
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .footer-links a {
-            color: #aaa;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: var(--spacing-xs);
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-sm);
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            color: white;
-            border-radius: 50%;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .social-link:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* Animated Elements */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                position: static;
-                margin-top: var(--spacing-lg);
-            }
-            
-            .news-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .article-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                flex-direction: column;
-                background-color: var(--primary-color);
-                width: 200px;
-                padding: var(--spacing-md);
-                box-shadow: 0 5px 10px var(--shadow-color);
-                transform: translateX(100%);
-                transition: transform var(--transition-speed) ease;
-                z-index: 100;
-            }
-            
-            .nav-links.active {
-                transform: translateX(0);
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-xl);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-sm);
-            }
-            
-            .logo-section {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-xs);
-            }
-            
-            .breaking-label {
-                align-self: flex-start;
-            }
-            
-            .nav-container {
-                align-self: flex-end;
-                margin-top: -40px;
-            }
-            
-            .content {
-                padding: var(--spacing-md);
-            }
-            
-            h1 {
-                font-size: 1.6rem;
-            }
-            
-            .article-subtitle {
-                font-size: 1rem;
-            }
-            
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-xs);
-            }
-            
-            .author-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .share-container {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <title>Bioscope App | Streaming Application</title>
+
+  <meta name="google" content="notranslate">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bioscope App | Streaming Application" />
+  <meta property="og:description" content="Watch movies, TV shows, and live streams with the Bioscope App." />
+  <meta property="og:image" content="https://www.bioscopeapp.com/templates/bioscope/images/bioscope-logo.png" />
+  <meta property="og:url" content="https://www.bioscopeapp.com/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card (optional, for Twitter/X sharing) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.bioscopeapp.com/templates/bioscope/images/bioscope-logo.png" />
+  
+  <!-- Stylesheets -->
+  <link href="/templates/bioscope/css/bootstrap.css" rel="stylesheet" />
+  <link href="/templates/bioscope/css/style.css" rel="stylesheet" />
+  <link href="/templates/bioscope/css/responsive.css" rel="stylesheet" />
+  
+  <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&amp;display=swap"
+  rel="stylesheet"
+  />
+  <link rel="shortcut icon" href="/templates/bioscope/images/bioscope-logo.png" type="image/x-icon" />
+  <link rel="icon" href="/templates/bioscope/images/bioscope-logo.png" type="image/x-icon" />
+  
+  <!-- Responsive -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
 </head>
-<body>
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
+
+<body class="hidden-bar-wrapper">
+  <div class="page-wrapper">
+    
+    <div class="preloader">
+      <span></span>
     </div>
     
-    <!-- Theme Switcher -->
-    <button class="theme-switch" id="themeSwitch">☀</button>
-    
-    <!-- Breaking News Ticker -->
-    <div class="ticker-tape">
-        <div class="ticker-content">
-            🔴 BREAKING: Fusion Energy Record Set | 🌍 Climate Summit Scheduled for June | 📈 Markets Respond to Energy Breakthrough | 🔬 Scientists Announce Quantum Computing Milestone | 🚀 Mars Mission Set for 2026 Launch
-        </div>
-    </div>
-    
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo-section">
-                <span class="breaking-label">BREAKING</span>
-                <h1 class="site-title">Global News Network</h1>
-            </div>
-            <div class="nav-container">
-                <button class="hamburger" id="menuToggle">☰</button>
-                <nav class="nav-links" id="navLinks">
-                    <a href="#">Home</a>
-                    <a href="#">Politics</a>
-                    <a href="#">Science</a>
-                    <a href="#">Technology</a>
-                    <a href="#">Business</a>
-                    <a href="#">Entertainment</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Main Content -->
-    <div class="container">
-        <main class="content">
-            <article>
-                <header class="article-header">
-                    <div class="article-meta">
-                        <span class="tag">Science</span>
-                        <span class="timestamp">February 28, 2025 • Updated 2 hours ago</span>
-                    </div>
-                    <h1>Major Scientific Breakthrough: Fusion Energy Record Set</h1>
-                    <p class="article-subtitle">Scientists achieve sustained fusion reaction for record 8 minutes, generating more energy than consumed—potentially revolutionizing global clean energy production.</p>
-                </header>
-                
-                <div class="article-image-container fade-in">
-                    <img class="article-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect fill='%23005b9f' width='800' height='400'/%3E%3Ctext fill='white' font-family='Arial' font-size='36' x='400' y='200' text-anchor='middle'%3EFusion Reactor Facility%3C/text%3E%3Ccircle cx='400' cy='200' r='80' fill='none' stroke='%2300ffff' stroke-width='20' opacity='0.8'%3E%3C/circle%3E%3Ccircle cx='400' cy='200' r='40' fill='%23ffffff' opacity='0.6'%3E%3Canimate attributeName='opacity' values='0.6;1;0.6' dur='3s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E" alt="Fusion Reactor Facility">
-                    <div class="image-caption">The IERC Fusion Facility where the groundbreaking reaction was achieved. Credit: IERC</div>
+    <header class="main-header">
+    <div class="header-top">
+    <div class="auto-container clearfix">
+        <div class="pull-left">
+            <ul class="info">
+                <li>
+                    <a href="tel:+959-2600-96-272"><span class="icon flaticon-phone"></span>Call:
+                        +959-2600-96-272</a>
+                    </li>
+                    <li>
+                        <a href="/cdn-cgi/l/email-protection#a6efc8c0c988c2c9cbc7cfc8e6cfc8c0c988c5c9cb"><span class="icon flaticon-email-2"></span
+                            ><span class="__cf_email__" data-cfemail="dab8b3b5a9b9b5aabfaebfbbb7eaeb9abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a
+                            >
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="article-content">
-                    <p>Scientists at the International Energy Research Center (IERC) have announced a groundbreaking achievement in fusion energy production, sustaining a reaction for a record 8 minutes and generating more energy than consumed by the system—a milestone that has eluded researchers for decades.</p>
-                    
-                    <p>The achievement marks what many experts are calling the most significant advancement in fusion energy since research began in the 1950s. Unlike previous fusion experiments that consumed more energy than they produced, the IERC team's reaction generated approximately 1.5 times the energy input, demonstrating the viability of fusion as a potential commercial power source.</p>
-                    
-                    <blockquote>
-                        "This represents a significant step toward commercial fusion power. While we still have challenges to overcome, this demonstrates that fusion can be a viable energy source for humanity's future. We're witnessing what could be the dawn of a new energy era."
-                        <footer>— Dr. Elena Morales, Lead Researcher</footer>
-                    </blockquote>
-                    
-                    <p>The breakthrough, which utilized a tokamak design with advanced magnetic confinement techniques, could lead to nearly limitless clean energy production within the next decade, experts say. Unlike traditional nuclear fission, fusion produces minimal radioactive waste and uses fuel derived from water, making it one of the most promising sustainable energy sources.</p>
-                    
-                    <p>IERC Director Dr. James Chen explained that the team overcame previous limitations through a combination of new superconducting materials and artificial intelligence-optimized plasma control systems. "The AI was able to predict and correct plasma instabilities in real-time, something human operators simply couldn't achieve with the necessary precision," Chen said.</p>
-                    
-                    <p>Global implications of the breakthrough are already being felt, with energy markets showing significant volatility as investors reassess long-term projections for traditional energy sources. Climate scientists have also expressed cautious optimism about fusion's potential to reduce carbon emissions if the technology can be commercialized within the next 15-20 years.</p>
-                </div>
-                
-                <div class="author-container fade-in">
-                    <img class="author-avatar" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect fill='%23888' width='200' height='200'/%3E%3Ccircle cx='100' cy='70' r='40' fill='%23ddd'/%3E%3Cpath d='M160,200 C160,160 140,130 100,130 C60,130 40,160 40,200 Z' fill='%23ddd'/%3E%3C/svg%3E" alt="Sarah Johnson">
-                    <div class="author-info">
-                        <h3>Sarah Johnson</h3>
-                        <p class="author-bio">Sarah Johnson is GNN's senior science correspondent, specializing in breakthrough technologies and climate science. She holds a PhD in Physics from MIT and has been covering scientific developments for over a decade.</p>
-                    </div>
-                </div>
-                
-                <div class="share-container">
-                    <button class="share-button">Share on Twitter</button>
-                    <button class="share-button">Share on Facebook</button>
-                    <button class="share-button">Share via Email</button>
-                </div>
-                
-                <section class="related-news">
-                    <h2 class="section-title">Related News</h2>
-                    <div class="news-grid">
-                        <div class="news-card fade-in">
-                            <div class="card-image-container">
-                                <img class="card-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'%3E%3Crect fill='%23407855' width='300' height='150'/%3E%3Ctext fill='white' font-family='Arial' font-size='18' x='150' y='75' text-anchor='middle'%3EClimate Summit%3C/text%3E%3Cpath d='M100,100 Q150,40 200,100' stroke='white' stroke-width='2' fill='none'/%3E%3Ccircle cx='150' cy='60' r='20' fill='%23ffdd00'/%3E%3C/svg%3E" alt="Climate Summit">
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Global Climate Summit Scheduled for June</h3>
-                                <p class="card-text">World leaders to discuss new emission targets in light of fusion developments and other clean energy breakthroughs.</p>
-                                <a href="#" class="read-more">Read more →</a>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card fade-in">
-                            <div class="card-image-container">
-                                <img class="card-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'%3E%3Crect fill='%23444466' width='300' height='150'/%3E%3Ctext fill='white' font-family='Arial' font-size='18' x='150' y='75' text-anchor='middle'%3EStock Market%3C/text%3E%3Cpolyline points='50,100 100,80 150,110 200,60 250,90' stroke='%2300ff00' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Energy Markets">
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Energy Markets Respond to Fusion News</h3>
-                                <p class="card-text">Stocks in traditional energy sectors show volatility as investors reassess long-term projections.</p>
-                                <a href="#" class="read-more">Read more →</a>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card fade-in">
-                            <div class="card-image-container">
-                                <img class="card-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'%3E%3Crect fill='%23553366' width='300' height='150'/%3E%3Ctext fill='white' font-family='Arial' font-size='18' x='150' y='75' text-anchor='middle'%3EFusion Science%3C/text%3E%3Ccircle cx='150' cy='75' r='30' stroke='%23ff00ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='150' cy='75' r='15' fill='%23ff00ff' opacity='0.5'/%3E%3C/svg%3E" alt="Fusion Science">
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">The Science Behind Fusion: Explained</h3>
-                                <p class="card-text">How scientists are recreating the power of stars on Earth and why this breakthrough matters.</p>
-                                <a href="#" class="read-more">Read more →</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </article>
-        </main>
-        
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <div class="sidebar-header">Trending Now</div>
-                <div class="sidebar-content">
-                    <ul class="trending-list">
-                        <li class="trending-item">
-                            <a href="#" class="trending-link">
-                                <span class="trending-number">1</span>
-                                <span>Fusion Energy Breakthrough Promises Clean Power Revolution</span>
-                            </a>
+                <div class="pull-right clearfix">
+                    <ul class="social-box">
+                        <li>
+                            <a
+                            href="#"
+                            class="fa fa-facebook-f"
+                            ></a>
                         </li>
-                        <li class="trending-item">
-                            <a href="#" class="trending-link">
-                                <span class="trending-number">2</span>
-                                <span>Global Climate Summit to Address New Energy Landscape</span>
-                            </a>
+                        <li>
+                            <a href="#" class="fa fa-twitter"></a>
                         </li>
-                        <li class="trending-item">
-                            <a href="#" class="trending-link">
-                                <span class="trending-number">3</span>
-                                <span>Markets Fluctuate Following Energy Technology News</span>
-                            </a>
-                        </li>
-                        <li class="trending-item">
-                            <a href="#" class="trending-link">
-                                <span class="trending-number">4</span>
-                                <span>AI System Key to Fusion Breakthrough, Scientists Say</span>
-                            </a>
-                        </li>
-                        <li class="trending-item">
-                            <a href="#" class="trending-link">
-                                <span class="trending-number">5</span>
-                                <span>What Fusion Power Means for Climate Change Goals</span>
-                            </a>
+                        <li>
+                            <a
+                            href="#"
+                            class="fa fa-linkedin"
+                            ></a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="sidebar-section">
-                <div class="sidebar-header">Subscribe to Updates</div>
-                <div class="sidebar-content">
-                    <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
-                        <button type="submit" class="newsletter-button">Subscribe</button>
-                    </form>
-                    <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-light);">Get the latest news delivered to your inbox. We never share your email.</p>
+        </div>    <div class="header-lower">
+          <div class="auto-container clearfix">
+            <div class="inner-container clearfix">
+              <div class="pull-left logo-box">
+                <div class="logo">
+                  <a href="/"
+                    ><img src="/templates/bioscope/images/logo.png" alt="" title=""
+                  /></a>
                 </div>
-            </div>
-            
-            <div class="sidebar-section">
-                <div class="sidebar-header">Latest Videos</div>
-                <div class="sidebar-content">
-                    <div style="background: var(--bg-secondary); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; border-radius: var(--border-radius);">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; margin-bottom: 5px;">▶️</div>
-                            <div>Inside the Fusion Lab: Exclusive Tour</div>
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-secondary); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius);">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; margin-bottom: 5px;">▶️</div>
-                            <div>Expert Analysis: Future of Energy</div>
-                        </div>
-                    </div>
+              </div>
+              <div class="nav-outer clearfix">
+                <div class="mobile-nav-toggler">
+                  <span class="icon flaticon-menu"></span>
                 </div>
-            </div>
-        </aside>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Global News Network</h3>
-                <p style="color: #aaa; margin-bottom: 20px;">Delivering accurate, timely news from around the world since 1995.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">f</a>
-                    <a href="#" class="social-link">t</a>
-                    <a href="#" class="social-link">in</a>
-                    <a href="#" class="social-link">ig</a>
+                <nav class="main-menu show navbar-expand-md">
+                  <div class="navbar-header">
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+
+                  <div
+                    class="navbar-collapse collapse clearfix"
+                    id="navbarSupportedContent"
+                  >
+                    <ul class="navigation clearfix">
+                      <li class="current">
+                        <a href="/">Home</a>
+                      </li>
+                      
+                      <li><a href="https://link.bioscopeapp.com/" target="_blank">Download</a></li>
+                      <li><a href="/">Contact us</a></li>
+                    </ul>
+                  </div>
+                </nav>
+
+                <div class="outer-box clearfix">
+                    <div class="nav-btn navSidebar-button">
+                    <span class="icon flaticon-dots-menu"></span>
+                  </div>
                 </div>
+
+                
+              </div>
             </div>
-            
-            <div class="footer-column">
-                <h3>Sections</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Politics</a></li>
-                    <li><a href="#">Business</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Science</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Entertainment</a></li>
-                </ul>
+          </div>
+        </div>    <div class="sticky-header">
+          <div class="auto-container clearfix">
+            <div class="logo pull-left">
+              <a href="/" title=""
+                ><img src="/templates/bioscope/images/logo.png" alt="" title=""
+              /></a>
             </div>
-            
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Advertise</a></li>
-                    <li><a href="#">Press Room</a></li>
-                </ul>
+
+            <div class="pull-right">
+              <nav class="main-menu"></nav>
+
+              <div class="outer-box clearfix">
+                
+
+                <div class="nav-btn navSidebar-button">
+                  <span class="icon flaticon-dots-menu"></span>
+                </div>
+              </div>
             </div>
-            
-            <div class="footer-column">
-                <h3>Legal</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                    <li><a href="#">Do Not Sell My Info</a></li>
-                </ul>
+          </div>
+        </div>    <div class="mobile-menu">
+          <div class="menu-backdrop"></div>
+          <div class="close-btn">
+            <span class="icon flaticon-multiply"></span>
+          </div>
+
+          <nav class="menu-box">
+            <div class="nav-logo">
+              <a href="/"
+                ><img src="/templates/bioscope/images/logo.png" alt="" title=""
+              /></a>
             </div>
+            <div class="menu-outer"></div>
+          </nav>
+        </div></header>    <section class="main-slider">
+        <div class="main-slider-carousel owl-carousel owl-theme">
+          <div
+            class="slide"
+            style="background-image: url(/templates/bioscope/images/site/home-slider-1.jpg)"
+          >
+            <div
+              class="pattern-layer"
+              style="
+                background-image: url(/templates/bioscope/images/main-slider/pattern-layer.png);
+              "
+            ></div>
+            <div class="auto-container">
+              <div class="content-boxed">
+                <div class="inner-box">
+                  <div class="title">Streaming Application</div>
+                  <h5 class="caption">မြန်မာစာတန်းထိုး 4K ရုပ်ရှင်များကို Android TV/Box, Android Phone, Windows PC, iOS, macOS များတွင် လွယ်ကူစွာ ကြည့်ရှုနိုင်ပါပြီ</h5>
+                  <div class="btns-box">
+                    <a href="https://link.bioscopeapp.com/" target="_blank" class="theme-btn btn-style-two"
+                      ><span class="txt"
+                        >Download <i class="lnr lnr-arrow-right"></i></span
+                    ></a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="copyright">
-            © 2025 Global News Network | All Rights Reserved
+      </section>    
+    <section class="services-section" style="background-image: url(/templates/bioscope/images/background/pattern-2.png)">
+        <div class="auto-container">
+          <div class="upper-section">
+            <div class="row clearfix">
+
+                <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                <div
+                  class="inner-box wow fadeInLeft"
+                  data-wow-delay="0ms"
+                  data-wow-duration="1500ms"
+                >
+                  <span class="border-one"></span>
+                  <span class="border-two"></span>
+                  <h4><a href="#">KBZ Pay</a></h4>
+                  <div class="text">
+                    <strong>09 2600 96 272</strong>
+                    <br />Nyein Chan Latt
+                  </div>
+                  <div class="icon">
+                    <img src="/templates/bioscope/images/site/payments/kpay.png" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-block active col-lg-4 col-md-6 col-sm-12">
+                <div
+                  class="inner-box wow fadeInUp"
+                  data-wow-delay="0ms"
+                  data-wow-duration="1500ms"
+                >
+                  <span class="border-one"></span>
+                  <span class="border-two"></span>
+                  <h4><a href="#">Wave Money</a></h4>
+                  <div class="text">
+                    <strong>09 2600 96 272</strong>
+                    <br />Nyein Chan Latt
+                  </div>
+                  <div class="icon">
+                    <img src="/templates/bioscope/images/site/payments/wavemoney.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-block col-lg-4 col-md-6 col-sm-12">
+                <div
+                  class="inner-box wow fadeInRight"
+                  data-wow-delay="0ms"
+                  data-wow-duration="1500ms"
+                >
+                  <span class="border-one"></span>
+                  <span class="border-two"></span>
+                  <h4><a href="#">Aya Pay</a></h4>
+                  <div class="text">
+                    <strong>09 2600 96 272</strong>
+                    <br />Nyein Chan Latt
+                  </div>
+                  <div class="icon">
+                    <img src="/templates/bioscope/images/site/payments/ayapay.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          <div class="lower-section">
+            <div class="row clearfix">
+              <!-- Image Column -->
+              <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column titlt" data-tilt data-tilt-max="3">
+                  <div class="color-layer"></div>
+                  <div class="border-layer"></div>
+                  <div class="image">
+                    <img src="/templates/bioscope/images/site/contact.png" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Column -->
+              <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                  <!-- Sec Title -->
+                  <div class="sec-title">
+                    <div class="title">Support</div>
+                    <h2>Contact Us</h2>
+                  </div>
+                  <div class="bold-text">
+                    Viber - 09 2600 96 272
+                    <br />Telegram - @bioscopeapp
+                    <br />Email - <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9af8f3f5e9f9f5eaffeefffbf7aaabdafdf7fbf3f6b4f9f5f7">[email&#160;protected]</a>
+                  </div>
+                  <div class="text">
+                    လစဥ်ကြေးကိစ္စများ၊ application နှင့်ပတ်သက်သောကိစ္စများအတွက် Viber/Telegram ကို တိုက်ရိုက်ဆက်သွယ်နိုင်ပါသည်။
+                  </div>
+                  <a href="about.html" class="theme-btn btn-style-four"
+                    ><span class="txt"
+                      >Read More <i class="lnr lnr-arrow-right"></i></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>        </div>
+      </section>    <section
+        class="pricing-section"
+        style="background-image: url(/templates/bioscope/images/background/pattern-3.png)"
+      >
+        <div class="auto-container">
+
+          <div class="sec-title light centered">
+            <div class="title">Pricing Plan</div>
+            <h2>Choose your plan</h2>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="price-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div
+                class="inner-box wow fadeInLeft"
+                data-wow-delay="150ms"
+                data-wow-duration="1500ms"
+              >
+                <div
+                  class="upper-box"
+                  style="background-image: url(/templates/bioscope/images/background/pattern-4.png)"
+                >
+                  <ul class="icon-list">
+                    <img src="/templates/bioscope/images/site/package/1.png" alt="" width="100" height="100"/>
+                  </ul>
+                  <h4>1 Month <span>5,000 MMK</span></h4>
+                </div>
+                <div class="lower-box">
+                  <ul class="price-list">
+                    <li>-</li>
+                    <li>2 Devices</li>
+                    <li>Unlimited Stream</li>
+                    <li>Unlimited Download</li>
+                    <li>Support on Request</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="price-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div
+                class="inner-box wow fadeInLeft"
+                data-wow-delay="150ms"
+                data-wow-duration="1500ms"
+              >
+                <div
+                  class="upper-box"
+                  style="background-image: url(/templates/bioscope/images/background/pattern-4.png)"
+                >
+                  <ul class="icon-list">
+                    <img src="/templates/bioscope/images/site/package/3.png" alt="" width="100" height="100"/>
+                  </ul>
+                  <h4>3 Months <span>15,000 MMK</span></h4>
+                </div>
+                <div class="lower-box">
+                  <ul class="price-list">
+                    <li class="danger-color"><strong>Extra 7 Days</strong></li>
+                    <li>2 Devices</li>
+                    <li>Unlimited Stream</li>
+                    <li>Unlimited Download</li>
+                    <li>Support on Request</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="price-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div
+                class="inner-box wow fadeInLeft"
+                data-wow-delay="150ms"
+                data-wow-duration="1500ms"
+              >
+                <div
+                  class="upper-box"
+                  style="background-image: url(/templates/bioscope/images/background/pattern-4.png)"
+                >
+                  <ul class="icon-list">
+                    <img src="/templates/bioscope/images/site/package/6.png" alt="" width="100" height="100"/>
+                  </ul>
+                  <h4>6 Months <span>30,000 MMK</span></h4>
+                </div>
+                <div class="lower-box">
+                  <ul class="price-list">
+                    <li class="danger-color"><strong>Extra 1 Month</strong></li>
+                    <li>2 Devices</li>
+                    <li>Unlimited Stream</li>
+                    <li>Unlimited Download</li>
+                    <li>Support on Request</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </section>    <section
+        class="facility-section"
+        style="background-image: url(/templates/bioscope/images/background/pattern-6.png)"
+      >
+        <div class="auto-container">
+          <!-- Sec Title -->
+          <div class="sec-title">
+            <div class="clearfix">
+              <div class="pull-left">
+                <h2>
+                  Premium Member ရယူရန်
+                </h2>
+                <div class="title mt-3">Premium member ဖြစ်ဖို့ အဆင့်(၃)ဆင့်ပဲ ပြုလုပ်ဖို့လိုပါတယ်။</div>
+              </div>
+              <div class="pull-right">
+                <div class="text">
+                   <strong class="warning-color">***(၃)ရက်ထက်ကျော်လွန်သောငွေလွှဲSSများကို လက်ခံမည်မဟုတ်ပါ။***</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Sec Title -->
+          <div class="row clearfix">
+            <!-- Blocks Column -->
+            <div class="blocks-column col-lg-6 col-md-12 col-sm-12">
+              <div class="inner-column">
+                <div class="row clearfix">
+                  <!-- Facility Block -->
+                  <div class="facility-block col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                      <div
+                        class="pattern-layer"
+                        style="
+                          background-image: url(/templates/bioscope/images/background/pattern-14.png);
+                        "
+                      ></div>
+                      <div class="icon-box flaticon-swimming-pool"></div>
+                      <h5>
+                        <a href="services-detail.html">အဆင့်(၁)</a>
+                      </h5>
+                      <div class="text">
+                        Bioscope App ကို ဒီနေရာမှာ <a href="https://link.bioscopeapp.com/" target="_blank" rel="noopener noreferrer">Download</a> ဆွဲပါ။
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Facility Block -->
+                  <div class="facility-block col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                      <div
+                        class="pattern-layer"
+                        style="
+                          background-image: url(/templates/bioscope/images/background/pattern-14.png);
+                        "
+                      ></div>
+                      <div class="icon-box flaticon-5g"></div>
+                      <h5>
+                        <a href="services-detail.html">အဆင့်(၂)</a>
+                      </h5>
+                      <div class="text">
+                        09 2600 96 272 (Nyein Chan Latt)
+အထက်ပါ KPay, WavePay Account သို့ ဝယ်ယူမည့် Plan အလိုက် ကျသင့်ငွေကိုလွှဲပါ။ ငွေလွှဲထားသည့် စာမျက်နှာအား Screenshot ရိုက်ယူထားပါ။
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Facility Block -->
+                  <div class="facility-block col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                      <div
+                        class="pattern-layer"
+                        style="
+                          background-image: url(/templates/bioscope/images/background/pattern-14.png);
+                        "
+                      ></div>
+                      <div class="icon-box flaticon-8k"></div>
+                      <h5>
+                        <a href="services-detail.html">အဆင့်(၃)</a>
+                      </h5>
+                      <div class="text">
+                        App Menu မှ Profile အောက်သို့သွားပါ။ <span class="danger-color">Premium သက်တမ်းတိုးရန်</span> ကိုနှိပ်ပြီး ငွေချေထားသော Plan ကိုရွေးပါ၊ <span class="danger-color">Choose Image</span> ကိုနှိပ်ပြီး Screenshot အားရွေးပါ၊ Submit ကိုနှိပ်ပေးလိုက်ပါ။
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Facility Block -->
+                  <div class="facility-block col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                      <div
+                        class="pattern-layer"
+                        style="
+                          background-image: url(/templates/bioscope/images/background/pattern-14.png);
+                        "
+                      ></div>
+                      <div class="icon-box flaticon-customer-service"></div>
+                      <h5><a href="contact.html">အဆင့်(၄)</a></h5>
+                      <div class="text">
+                        Submit လုပ်ပြီးနောက် အချိန် 5 to 30 min လောက်စောင့်ဆိုင်းပေးပါ။ Admin Team မှစစ်ဆေးပြီး member အနေဖြင့်သက်တမ်းဖြည့်ပေးသွားမှာဖြစ်ပါတယ်။</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+              <div class="inner-column">
+                <div class="pattern-layer"></div>
+                <div
+                  class="image wow slideInRight"
+                  data-wow-delay="0ms"
+                  data-wow-duration="1500ms"
+                >
+                  <img src="/templates/bioscope/images/resource/facility.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>    
     
-    <script>
-        // Theme Switcher
-        const themeSwitch = document.getElementById('themeSwitch');
-        const htmlElement = document.documentElement;
-        
-        themeSwitch.addEventListener('click', () => {
-            if (htmlElement.getAttribute('data-theme') === 'light') {
-                htmlElement.setAttribute('data-theme', 'dark');
-                themeSwitch.textContent = '☾';
-            } else {
-                htmlElement.setAttribute('data-theme', 'light');
-                themeSwitch.textContent = '☀';
-            }
-        });
-        
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Progress Bar
-        window.onscroll = function() {myFunction()};
-        
-        function myFunction() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("myBar").style.width = scrolled + "%";
-        }
-        
-        // Fade-in Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    fadeObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        fadeElements.forEach(element => {
-            fadeObserver.observe(element);
-        });
-    </script>
-</body>
-</html>
+    
+    
+    <section class="store-section">
+        <div class="auto-container">
+          <!-- Sec Title -->
+          <div class="sec-title centered">
+            <h2>App Interface</h2>
+          </div>
+          <!-- End Sec Title -->
+
+          <div class="four-item-carousel owl-carousel owl-theme">
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/1.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/2.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            
+
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/5.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/6.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/7.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="/templates/bioscope/images/site/app-interface/9.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>    
+    <footer class="main-footer">
+        <div
+          class="pattern-layer-one"
+          style="background-image: url(/templates/bioscope/images/background/pattern-12.png)"
+        ></div>
+        <div
+          class="pattern-layer-two"
+          style="background-image: url(/templates/bioscope/images/background/pattern-13.png)"
+        ></div>
+        <div class="auto-container">
+          <div class="widgets-section">
+            <div class="logo">
+              <a href="/"
+                ><img src="/templates/bioscope/images/bioscope-white-bg-logo.png" alt="" width="200"
+              /></a>
+            </div>
+            <ul class="contact-info-list">
+              <li>
+                <span class="icon"
+                  ><img src="/templates/bioscope/images/icons/icon-1.png" alt=""
+                /></span>
+                <a class="pt-2" href="#">+959-2600-96-272</a><br />
+              </li>
+              <li>
+                <span class="icon"
+                  ><img src="/templates/bioscope/images/icons/icon-2.png" alt=""
+                /></span>
+                <a class="pt-2" href="/cdn-cgi/l/email-protection#294b40465a4a46594c5d4c48441918694e44484045074a4644"><span class="__cf_email__" data-cfemail="dcbeb5b3afbfb3acb9a8b9bdb1eced9cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</span></a><br />
+              </li>
+              <li>
+                <span class="icon"
+                  ><img src="/templates/bioscope/images/icons/icon-3.png" alt=""
+                /></span>
+                <a class="pt-2" href="#"> 22 Baker Street, London, UK</a>
+              </li>
+            </ul>
+
+            <!-- Social Box -->
+            
+          </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="auto-container">
+            <div class="copyright">
+              &copy; 2025 Bioscope App. All Rights Reserved. Developed By
+              <a href="#">Bioscope Team</a>
+            </div>
+          </div>
+        </div>
+      </footer>  </div>
+  
+  <!-- Scroll To Top -->
+  <div class="scroll-to-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+  </div>
+  
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/templates/bioscope/js/jquery.js"></script>
+<script src="/templates/bioscope/js/popper.min.js"></script>
+<script src="/templates/bioscope/js/bootstrap.min.js"></script>
+<script src="/templates/bioscope/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/templates/bioscope/js/jquery.fancybox.js"></script>
+<script src="/templates/bioscope/js/appear.js"></script>
+<script src="/templates/bioscope/js/parallax.min.js"></script>
+<script src="/templates/bioscope/js/tilt.jquery.min.js"></script>
+<script src="/templates/bioscope/js/jquery.paroller.min.js"></script>
+<script src="/templates/bioscope/js/owl.js"></script>
+<script src="/templates/bioscope/js/wow.js"></script>
+<script src="/templates/bioscope/js/nav-tool.js"></script>
+<script src="/templates/bioscope/js/jquery-ui.js"></script>
+<script src="/templates/bioscope/js/script.js"></script>  
+  <!--[if lt IE 9
+    ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
+      ><![endif]-->
+      <!--[if lt IE 9]><script src="/templates/bioscope/js/respond.js"></script><![endif]-->
+    </body>
+    
+    <!-- Mirrored from html.themexriver.com/nextbit/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Nov 2024 06:32:24 GMT -->
+    </html>
