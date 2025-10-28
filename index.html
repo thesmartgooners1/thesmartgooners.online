@@ -1,147 +1,228 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE SMART GOONERS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Soe Hayman Oo, Portfolio, Data Analyst">
+  <meta name="keywords" content="Soe Hayman Oo, Portfolio, Data Analyst">
+  <meta name="author" content="Soe Hayman Oo">
+  <title>Soe Hayman Oo - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
+
 <body>
-  <header class="header">
-    <div class="logo">THE SMART GOONERS</div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">NEWS</a></li>
-        <li><a href="#">FACEBOOK</a></li>
-      </ul>
+  <header class="fixed-top" data-aos="fade-down">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="https://con3029.wordpress.com/wp-content/uploads/2025/09/wp-17591889425672639773060386508500.jpg" alt="TSG">
-    <div class="hero-text">
-      <h1>The Smart Gooners 🔴⚪️ | Arsenal FC</h1>
-      <p>Tactics. Transfers. Stats. Strategy.
-For Gooners who love the game behind the game.
-No clickbait — just proper football insight. #COYG</p>
-    </div>
-  </section>
-
-  <!-- Featured Stories -->
-  <section class="featured">
-    <h2>Featured Stories</h2>
-    <div class="cards">
-      <article class="card">
-        <img src="https://con3029.wordpress.com/wp-content/uploads/2025/09/fb_img_1759226746626282227694511570579.jpg" alt="TSG">
-<h3>Times Fly So Fast!</h3>
-<p>The Smart Gooners ပရိသတ်ကြီးနဲ့အတူရှိလာတာဟာ ၂ နှစ်နီးပါးရှိလာပါပြီ ။ အားပေးကြသူတိုင်းကိုကျေးဇူးတင်ပါတယ်။</p>
-<a href="https://example.com/ai-healthcare-article" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 8px 16px; 
-  background-color: #cc0000; color: white; text-decoration: none; border-radius: 4px;">Read More</a>
-
-</article>
-      <article class="card">
-<img src="https://con3029.wordpress.com/wp-content/uploads/2025/09/fb_img_17592268243553716761348998984589.jpg?utm_campaign=as-npt105112517" alt="Saliba">
-<h3>ဆလီဘာ အသင်းနဲ့ နှစ်ရှည်စာချုပ်သစ် ချုပ်ဆို</h3>
-<p>BREAKING: ဆလီဘာ အသင်းနဲ့ နှစ်ရှည်စာချုပ်သစ် ချုပ်ဆိုလိုက်ကြောင်း အာဆင်နယ်အသင်းမှ တရားဝင်ကြေငြာလာ။</p>
-<a href="https://example.com/ai-healthcare-article" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 8px 16px; 
-  background-color: #cc0000; color: white; text-decoration: none; border-radius: 4px;">Read More</a>
-</article>
-      <article class="card">
-        <img src="https://con3029.wordpress.com/wp-content/uploads/2025/09/17592281742025194826140120460636.jpg" alt="Saka">
-<h3>ဆာကာစာချုပ်သစ် သဘောတူညီမှုရဖို့နီးစပ်လာ</h3>
-<p>စရောက်ထဲက ရှယ်ကြမ်းပြနေတဲ့ ဘာတာကတော့ ဆာကာစာချုပ်သစ်ကိစ္စလဲ သဘောတူညီမှုရဖို့ နီးစပ်နေပါပြီ။ ဆာကာစာချုပ်အပြင် အခြား စာချုပ်သက်တမ်းတိုးတာ တခုလဲ လုပ်ဆောင်နေပါတယ်တဲ့။</p>
-<a href="https://example.com/ai-healthcare-article" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 8px 16px; 
-  background-color: #cc0000; color: white; text-decoration: none; border-radius: 4px;">Read More</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- Latest Articles -->
-  <section class="articles">
-    <h2>Latest Articles</h2>
-    <div class="article-list">
-      <article>
-        <img src="https://images.pexels.com/photos/261796/pexels-photo-261796.jpeg" alt="Economy">
-        <div>
-          <h3>Global Economy Sees Unexpected Growth</h3>
-          <p>Despite ongoing crises, some countries report stronger economic activity than expected.</p>
+  <main>
+    <section id="home">
+      <div class="container row flex-wrap-reverse">
+        <div class="col-md-8 d-flex flex-column justify-content-center" data-aos="fade-right">
+          <h1 class="display-5 fw-bold mb-3">Soe Hayman</h1>
+          <p class="px-2 flex">Data Analyst</span></p>
+          <div class="d-flex gap-3 fs-3 px-2">
+          </div>
         </div>
-      </article>
-      <article>
-        <img src="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg" alt="Science">
-        <div>
-          <h3>SpaceX Prepares Next Mars Mission</h3>
-          <p>The company announces ambitious plans to colonize Mars within the next decade.</p>
+        <div class="col-md-4 text-center" data-aos="fade-left">
+          <img src="https://soehaymanoo.vercel.app/photo_2025-10-28_01-10-31.jpg" class="img-fluid border rounded-circle" alt="  Soe Hayman Oo profile" loading="lazy" width="300">
         </div>
-      </article>
-      <article>
-        <img src="https://images.pexels.com/photos/374074/pexels-photo-374074.jpeg" alt="Environment">
-        <div>
-          <h3>Climate Summit Aims to Cut Carbon Emissions</h3>
-          <p>World leaders gather to implement new strategies for reducing global emissions.</p>
+      </div>
+      <button class="btn btn-dark" id="scrollBtn">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </section>
+    <section id="about">
+      <div class="container py-5 mb-5">
+
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" data-aos="fade-up">About Me</h1>
+        <p class="fs-5" data-aos="fade-up">Over the past eight years in the service industry, I’ve built strong skills in understanding people, improving performance, and making decisions backed by data. I love turning complex information into simple insights that help teams work smarter — a passion I now bring into my journey as a data analyst.</p>
+        <div class="d-flex gap-2" data-aos="fade-up">
+          <a href="https://soehaymanoo.vercel.app/soehayman.cv.pdf" class="list-group-item"><button type="button" class="btn btn-dark">My CV</button>
+            <a href="#contact" class="btn btn-outline-secondary ">Contact Me</a>
         </div>
-      </article>
-    </div>
-  </section>
 
-  <!-- Facebook-Follow -->
-<section class="facebook-follow">
-  <h2>Follow The Smart Gooners On Facebook!</h2>
-  <p>Stay updated with the latest news, stories, and live updates.</p>
-  <a href="https://www.facebook.com/TheSmartGooners" target="_blank" class="facebook-btn">
-    <i class="fab fa-facebook-f"></i> Follow Us
-  </a>
-</section>
+      </div>
+    </section>
+    <section id="education">
+      <div class="container py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Education</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
-<style>
-.facebook-follow {
-  text-align: center;
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 400px;
-  margin: 2rem auto;
-  font-family: Arial, sans-serif;
-}
+          <div class="col p-3">
+            <div class="education p-3 rounded" data-aos="flip-right">
 
-.facebook-follow h2 {
-  color: #1877f2;
-  margin-bottom: 0.5rem;
-}
+              <i class="fa-solid fa-graduation-cap fs-2 mb-4"></i>
 
-.facebook-follow p {
-  color: #555;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
+              <h3 class="fs-3">Bachelor of Engineering ( Electrical Communication)</h3>
+              <p class="fs-5">Technology University Sagaing Myanmar</p>
+              <p>Passed the examination in 2017.</p>
+            </div>
 
-.facebook-btn {
-  display: inline-block;
-  background: #1877f2;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
+          </div>
 
-.facebook-btn:hover {
-  background: #145dbf;
-}
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="py-5">
+      <h2 class="text-center mb-5" data-aos="fade-up">My Skills</h2>
+      <div class="container-fluid d-flex flex-wrap gap-3 align-items-center justify-content-center display-5">
 
-.facebook-btn i {
-  margin-right: 8px;
-}
-</style>
-  <footer>
-    <p>&copy; 2025 The Smart Gooners. All Rights Reserved.</p>
+        <i class="fa fa-bar-chart" data-aos="zoom-in"></i>
+        <i class="fa fa-cogs" data-aos="zoom-in"></i>
+
+      </div>
+    </section>
+    <section id="projects" class="py-5 my-5">
+      <h2 class="text-center" data-aos="fade-up">My Projects</h2>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+              <img src="photo_2025-10-28_13-54-22.jpg" alt="project" class="card-img-top">
+              <div class="card-body">
+
+                <h5 class="card-title">DATA Jobs Dashbord</h5>
+                <p class="card-text">This dashboard highlights key insights from the 2024 data job market, showing job trends, salary comparisons, and top-paying roles. It reveals that senior positions like Data Scientist and Data Engineer lead in pay, while overall demand remains strong with a median yearly salary of $113K. </p>
+                <div class="d-flex gap-3 fs-4">
+                  <a href="https://github.com/KOLADIYAYASH/WORKSURVAY-" class="list-group-item"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+              <img src="photo_2025-10-28_13-58-51.jpg" alt="project" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">Ecommernce Sales </h5>
+                <p class="card-text"> This dashboard provides an overview of eCommerce performance, highlighting key metrics like total sales, orders, customers, and discounts. Electronics and Clothing lead in revenue, while the 25–45 age group contributes the most sales. Insights by gender, discount campaigns, and payment methods help identify customer trends and optimize sales strategies.</p>
+                <div class="d-flex gap-3 fs-4">
+                  <a href="https://github.com/KOLADIYAYASH/Tic-Tac-Toe-Web-application" class="list-group-item"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+              <img src="photo_2025-10-28_14-01-49.jpg" alt="project" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">Sale DATA Project</h5>
+                <p class="card-text"> This dashboard tracks overall sales performance, showing total revenue, product-wise sales, and monthly trends. Laptops contribute the highest revenue share, followed by desks and monitors. It also highlights sales distribution by salesperson, region, and product category to support data-driven sales decisions.</p>
+                <div class="d-flex gap-3 fs-4">
+                  <a href="https://github.com/KOLADIYAYASH/UNIT_CALCULATER" class="list-group-item"> <i class="fa-brands fa-github"></i></a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section id="contact" data-aos="fade-up">
+      <div class="container">
+        <div class="row my-5 py-5">
+          <div class="col-md-6 d-flex flex-column align-items-start justify-content-center">
+            <h1 class="display-5 fw-bold mb-3">Contact Me</h1>
+            <p class="fs-5">Prefer email? Reach out to me at <i class="fa-solid envelope"></i> <a href="mailto:soehayman21995@gmail.com" target="_blank">soehayman21995@gmail.com</a></p>
+            <p class="fs-5"><i class="fa-solid fa-phone"></i>+6584334799</p>
+          </div>
+          <div class="col-md-6">
+            <p class="fs-5">Send me a message</p>
+            <form action=other_page.php method=POST/GET>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                <label for="name">Your Name</label>
+              </div>
+
+              <div class="form-floating mb-3">
+
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                <label for="email">Your Email</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <textarea name="message" id="message" class="form-control" placeholder="Hello"></textarea>
+                <label for="message">Your message</label>
+                <label for="message">Your message</label>
+              </div>
+
+              <button class="w-100 btn btn-lg btn-success" type="submit">Send <i class="fa-solid fa-paper-plane"></i></button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="text-center">
+    <p class="fs-5">Copy Right Soe Hayman <i class="fa-solid text-danger fa-heart"></i> / All Rights Reserved</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typeit/dist/typeit.min.js"></script>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize TypeIt
+      new TypeIt("#typed-text", {
+          speed: 200,
+          waitUntilVisible: true,
+          loop: true
+        })
+        .type("web developer.")
+        .pause(200)
+        .delete(14)
+        .type("Freelancer.")
+        .delete(10)
+        .pause(200)
+        .delete(10)
+        .type("Student.") // Text to be typed
+        .go(); // Start typing
+    });
+  </script>
   <script src="script.js"></script>
+  <script src="other_page.php"></script>
 </body>
+
 </html>
