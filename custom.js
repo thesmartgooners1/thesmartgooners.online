@@ -33,7 +33,7 @@ const createDownloadBtn = () => {
     let downloadPostLink = location.href.replace(/\/demos\//, '/');
     downloadPostLink = downloadPostLink.replace(/^\//, '');
 
-    downloadBtn.innerHTML = `<a href="${downloadPostLink}" target="_blank">Download Code Files</a>`;
+    downloadBtn.innerHTML = `<a href="${downloadPostLink}" target="_blank">THE SMART GOONERS</a>`;
     document.body.prepend(downloadBtn);
 }
 
