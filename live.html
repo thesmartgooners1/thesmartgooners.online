@@ -75,7 +75,7 @@
     <div class="hero">
       <div class="hero-content">
         <div class="badge"><span class="dot"></span> LIVE FOOTBALL</div>
-        <h1>Every match.<br>One place.</h1>
+        <h1>Arsenal match.<br>One place.</h1>
         <p>Follow live scores, schedules and match updates in a fast, modern football experience.</p>
         <button class="primary" onclick="scrollToLive()">Watch live</button>
         <button class="secondary" onclick="alert('Schedule opened')">View schedule</button>
@@ -93,31 +93,13 @@
       </div>
 
       <div class="grid" id="matchGrid">
-        <article class="card" data-status="live" data-name="Real Madrid Barcelona La Liga">
-          <div class="card-top"><span>La Liga</span><span class="live">● LIVE</span></div>
+        <article class="card" data-status="live" data-name="Club Friendlies">
+          <div class="card-top"><span>Club Friendlies</span><span class="live">Upcoming</span></div>
           <div class="teams">
-            <div class="team"><div class="team-info"><div class="team-logo">RM</div>Real Madrid</div><div class="score">2</div></div>
-            <div class="team"><div class="team-info"><div class="team-logo">FCB</div>Barcelona</div><div class="score">1</div></div>
+            <div class="team"><div class="team-info"><div class="team-logo">G</div>Girona</div><div class="score">0</div></div>
+            <div class="team"><div class="team-info"><div class="team-logo">A</div>Arsenal</div><div class="score">0</div></div>
           </div>
           <div class="card-bottom"><span>Santiago Bernabéu</span><button class="watch" onclick="openPlayer('Real Madrid vs Barcelona','https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">Watch</button></div>
-        </article>
-
-        <article class="card" data-status="live" data-name="Liverpool Arsenal Premier League">
-          <div class="card-top"><span>Premier League</span><span class="live">● LIVE</span></div>
-          <div class="teams">
-            <div class="team"><div class="team-info"><div class="team-logo">LIV</div>Liverpool</div><div class="score">1</div></div>
-            <div class="team"><div class="team-info"><div class="team-logo">ARS</div>Arsenal</div><div class="score">1</div></div>
-          </div>
-          <div class="card-bottom"><span>Anfield</span><button class="watch" onclick="openPlayer('Liverpool vs Arsenal','https://test-streams.mux.dev/test_001/stream.m3u8')">Watch</button></div>
-        </article>
-
-        <article class="card" data-status="upcoming" data-name="Inter Milan Juventus Serie A">
-          <div class="card-top"><span>Serie A</span><span>Upcoming</span></div>
-          <div class="teams">
-            <div class="team"><div class="team-info"><div class="team-logo">INT</div>Inter Milan</div><div class="score">–</div></div>
-            <div class="team"><div class="team-info"><div class="team-logo">JUV</div>Juventus</div><div class="score">–</div></div>
-          </div>
-          <div class="card-bottom"><span class="countdown" data-minutes="85">Loading...</span><button class="watch" onclick="alert('Reminder enabled')">Remind me</button></div>
         </article>
       </div>
     </section>
