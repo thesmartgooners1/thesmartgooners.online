@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Football News - GoalStream{% endblock %}
+
+{% block content %}
+<main>
+  <section class="page-hero">
+    <span class="eyebrow">Newsroom</span>
+    <h1>Latest football news</h1>
+    <p>Read match reports, transfer stories, league updates, and your uploaded articles.</p>
+
+    <form class="news-search" method="get">
+      <input name="q" value="{{ search }}" placeholder="Search news or leagues">
+      <button>Search</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <div class="news-grid">
+      {% for article in news_items %}
+        <article class="news-card">
+          {% if article.image %}
+            <img src="{{ url_for('static', filename='uploads/' + article.image) }}" alt="{{ article.title }}">
+          {% else %}
+            <div class="news-placeholder">⚽</div>
+          {% endif %}
+          <div class="news-body">
+            <span class="news-tag">{{ article.league }}</span>
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.summary }}</p>
+            <small>{{ article.created_at }}</small>
+            <a href="{{ url_for('news_detail', news_id=article.id) }}">Read article →</a>
+          </div>
+        </article>
+      {% else %}
+        <div class="empty-state">
+          <h2>No news found</h2>
+          <p>Try a different search or upload a new article.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock %}
