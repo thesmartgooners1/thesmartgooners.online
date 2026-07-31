@@ -255,16 +255,3 @@ button,input{font:inherit}
   .article-content{padding:22px}
   .article-cover{height:300px;border-radius:20px}
 }
-
-.site-logo{
-    width:36px;
-    height:36px;
-    object-fit:contain;
-    display:block;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
