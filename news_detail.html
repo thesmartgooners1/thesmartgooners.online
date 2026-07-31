@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} - GoalStream{% endblock %}
+
+{% block content %}
+<main>
+  <article class="article-page">
+    <a class="back-link" href="{{ url_for('news_list') }}">← Back to news</a>
+    <span class="news-tag">{{ article.league }}</span>
+    <h1>{{ article.title }}</h1>
+    <p class="article-summary">{{ article.summary }}</p>
+    <small>Published {{ article.created_at }}</small>
+
+    {% if article.image %}
+      <img class="article-image"
+        src="{{ url_for('static', filename='uploads/' + article.image) }}"
+        alt="{{ article.title }}">
+    {% endif %}
+
+    <div class="article-content">{{ article.content }}</div>
+  </article>
+
+  {% if related %}
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Keep reading</span>
+          <h2>Related news</h2>
+        </div>
+      </div>
+
+      <div class="news-grid">
+        {% for item in related %}
+          <article class="news-card">
+            {% if item.image %}
+              <img src="{{ url_for('static', filename='uploads/' + item.image) }}" alt="{{ item.title }}">
+            {% else %}
+              <div class="news-placeholder">⚽</div>
+            {% endif %}
+            <div class="news-body">
+              <span class="news-tag">{{ item.league }}</span>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.summary }}</p>
+              <a href="{{ url_for('news_detail', news_id=item.id) }}">Read article →</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</main>
+{% endblock %}
