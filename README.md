@@ -1,105 +1,77 @@
-# GoalStream Flask Website
+# Football Central
+
+A modern ESPN-inspired football news website built with Python Flask.
 
 ## Features
 
-- Modern responsive football website
-- Match cards with live and upcoming filters
-- HLS `.m3u8` and MP4 video player
-- Different stream URL for each match
-- News list and article pages
-- Upload news with an image
-- SQLite database
-- Delete published news
-- Ready for GitHub + Render deployment
+- Responsive homepage
+- Featured story
+- Trending news
+- Match cards
+- Category pages
+- Individual article pages
+- Newsletter UI
+- Mobile navigation
+- Custom 404 page
 
-## Run locally
+## Run on Windows
+
+1. Install Python from https://python.org
+2. Open this folder in VS Code.
+3. Open Terminal.
+4. Run:
 
 ```bash
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
 
-Open:
+5. Open:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-News upload page:
+## Run on macOS or Linux
 
-```text
-http://127.0.0.1:5000/admin/news
-```
-
-## Change a match stream
-
-Open `templates/index.html`.
-
-Find:
-
-```html
-onclick="openPlayer('Real Madrid vs Barcelona', 'STREAM_URL')"
-```
-
-Replace `STREAM_URL` with your authorized `.m3u8` or `.mp4` URL.
-
-## Deploy with GitHub and Render
-
-1. Upload this project to a GitHub repository.
-2. In Render, create a Web Service from the repository.
-3. Build command:
-
-```text
+```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+python app.py
 ```
 
-4. Start command:
+## Add news
 
-```text
-gunicorn app:app
-```
+Open `app.py` and add another item inside the `ARTICLES` list.
+
+## Change website name
+
+Search for `Football Central` in the project files and replace it with your website name.
 
 ## Important
 
-The admin page currently has no login protection. Add authentication before using it publicly.
-
-Use only legally licensed video streams and news content you are allowed to publish.
+This project uses sample text and external Unsplash images. Replace sample content with your own licensed news, images and data before publishing.
 
 
-## Real live scores
+## Upload to GitHub in your browser
 
-This version supports API-Football live results.
+1. Create a new empty GitHub repository.
+2. Open the repository.
+3. Select **Add file > Upload files**.
+4. Upload the project files and folders, not the ZIP file itself.
+5. Commit the changes.
 
-Create an API key and set this environment variable:
+## Publish online with Render
 
-```text
-API_FOOTBALL_KEY=your_key_here
-```
+GitHub stores the code, but GitHub Pages cannot run this Flask server.
 
-### Windows PowerShell
-
-```powershell
-$env:API_FOOTBALL_KEY="your_key_here"
-python app.py
-```
-
-### macOS / Linux
-
-```bash
-export API_FOOTBALL_KEY="your_key_here"
-python app.py
-```
-
-### Render
-
-In your Render service, open **Environment** and add:
-
-```text
-API_FOOTBALL_KEY
-```
-
-Paste your API-Football key as the value, then redeploy.
-
-The browser requests `/api/live-scores` every 60 seconds. Your API key remains on the Python server and is not exposed in the HTML.
-
-Without a key, the site shows clearly labeled demo scores.
+1. Sign in to Render.
+2. Select **New > Web Service**.
+3. Connect your GitHub account and select this repository.
+4. Render can read `render.yaml`, or use:
+   - Build command: `pip install -r requirements.txt`
+   - Start command: `gunicorn app:app`
+5. Deploy the web service.
